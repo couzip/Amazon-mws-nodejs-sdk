@@ -1,35 +1,80 @@
 {
-  "name": "mws-nodejs",
+  "_args": [
+    [
+      "https://github.com/gorlux/Amazon-mws-nodejs-sdk.git",
+      "/Users/alessio/Progetti/graffiti/node-amazon"
+    ]
+  ],
+  "_from": "git+https://github.com/gorlux/Amazon-mws-nodejs-sdk.git",
+  "_id": "mws-nodejs@0.4.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/mws-nodejs",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/gorlux/Amazon-mws-nodejs-sdk/master/package.json",
+      "gitUrl": "git://github.com/gorlux/Amazon-mws-nodejs-sdk.git",
+      "httpsUrl": "git+https://github.com/gorlux/Amazon-mws-nodejs-sdk.git",
+      "shortcut": "github:gorlux/Amazon-mws-nodejs-sdk",
+      "ssh": "git@github.com:gorlux/Amazon-mws-nodejs-sdk.git",
+      "sshUrl": "git+ssh://git@github.com/gorlux/Amazon-mws-nodejs-sdk.git",
+      "type": "github"
+    },
+    "name": null,
+    "raw": "https://github.com/gorlux/Amazon-mws-nodejs-sdk.git",
+    "rawSpec": "https://github.com/gorlux/Amazon-mws-nodejs-sdk.git",
+    "scope": null,
+    "spec": "git+https://github.com/gorlux/Amazon-mws-nodejs-sdk.git",
+    "type": "hosted"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/gorlux/Amazon-mws-nodejs-sdk.git#2375bece865643b41924e8f8d7cf4a2175b291ff",
+  "_shasum": "061ea5ae4a810ec55399cde46a46a2a8fffef811",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/gorlux/Amazon-mws-nodejs-sdk.git",
+  "_where": "/Users/alessio/Progetti/graffiti/node-amazon",
+  "author": {
+    "email": "jakub.gabco@hotmail.com",
+    "name": "Jakub Gabčo"
+  },
+  "bugs": {
+    "url": "https://github.com/TheLordBaski/Amazon-mws/issues"
+  },
+  "dependencies": {
+    "crypto": "0.0.3",
+    "csv": "^1.1.0",
+    "pixl-xml": "^1.0.4",
+    "underscore": "^1.8.3"
+  },
   "description": "Amazon MWS nodeJS SDK.",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "gitHead": "2375bece865643b41924e8f8d7cf4a2175b291ff",
+  "homepage": "https://github.com/TheLordBaski/Amazon-mws#readme",
+  "license": "Apache-2.0",
+  "main": "mws-nodejs.js",
+  "name": "mws-nodejs",
+  "optionalDependencies": {},
+  "readme": "#AMAZON MWS NODEJS SDK\n#OUT OF DEVELOPMENT - CONTACT ME FOR MORE INFO\n\n\nA small SDK library providing utility to use Amazon MWS API.\n\n## Installation\n\n    npm install mws-nodejs --save\n\n## Usage\n\n    var mws = require(\"mws-nodejs\").mws;\n    var config = require(\"./config.json\");\n\n    \n    mws.products.GetServiceStatus(config, true, function (err, data) {\n        console.log(\"GetServiceStatus:\");\n        console.log(data.GetServiceStatusResponse.GetServiceStatusResult);\n        console.log(\"\\n\");\n    });\n    \n    mws.products.GetCompetitivePricingForASIN(config,{\n        MarketplaceId: 'APJ6JRA9NG5V4',\n        ASINList: {\"ASINList.ASIN.1\": \"B006N7COWQ\"}\n    }, true, function(err, data){\n    \n        console.log(data);\n    });\n    mws.products.ListMatchingProducts(config, {\n        MarketplaceId: 'APJ6JRA9NG5V4',\n        Query: 'Ed Sheeran',\n        QueryContextId: 'Music'\n    },false, function (err, data) {\n        console.log(\"ListMatchingProducts:\");\n        console.log(data);\n        console.log(\"\\n\");\n    });\n    \n    mws.products.GetMatchingProduct(config, {\n            MarketplaceId: 'APJ6JRA9NG5V4',\n            ASINList: {\n                'ASINList.ASIN.1': 'B00012SYY6',\n                'ASINList.ASIN.2': 'B00004CZ0F'\n            }\n        }, true, function (err, data) {\n            console.log(\"GetMatchingProduct:\");\n            console.log(data);\n            console.log(\"\\n\");\n        }\n    );\n    \n    mws.products.GetMatchingProductForId(config, {\n        MarketplaceId: 'APJ6JRA9NG5V4',\n        IdType: 'ASIN',\n        IdList: {\"IdList.Id.1\": 'B00012SYY6'}\n    }, true, function (err, data) {\n        console.log(\"GetMatchingProductForId:\");\n        console.log(data);\n        console.log(\"\\n\");\n    \n    });\n    \n    mws.products.GetCompetitivePricingForSKU(config, {\n        MarketplaceId: 'APJ6JRA9NG5V4',\n        SellerSKUList: []\n    }, true, function (err, data) {\n        console.log(\"GetCompetitivePricingForSKU:\");\n        console.log(data);\n        console.log(\"\\n\");\n    \n    });\n\n\n## Config look-like\n\n    {\n      \"SellerId\" : \"xxx\",\n      \"DeveloperAccountNumber\" : \"xxx\",\n      \"AWSAccessKeyId\" : \"xxx\",\n      \"SecretKey\" : \"xxx\",\n      \"MWSAuthorizationToken\" : \"xxx\",\n      \"AmazonServicesURL\": \"mws.amazonservices.com\"\n    }\n\nAmazonServicesURL endpoints can be refers to http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Endpoints.html\n\n## Contributors\n\n    Jakub Gabčo\n    Zdeněk Pečínka\n\n## Product Version\n\n    0.3.3\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheLordBaski/Amazon-mws.git"
+  },
+  "scripts": {},
   "tags": [
     "mws",
     "http",
     "post",
     "nodejs"
   ],
-  "version": "0.4.0",
-  "author": "Jakub Gabčo <jakub.gabco@hotmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/TheLordBaski/Amazon-mws.git"
-  },
-  "bugs": {
-    "url": "https://github.com/TheLordBaski/Amazon-mws/issues"
-  },
-  "license": "Apache-2.0",
-  "engines": {
-    "node": ">=0.8.0"
-  },
-  "main": "mws-nodejs.js",
-  "dependencies": {
-    "crypto": "0.0.3",
-    "underscore": "^1.8.3",
-    "pixl-xml": "^1.0.4",
-    "csv": "^1.1.0"
-  },
-  "scripts": {},
-  "devDependencies": {
-    "chai": "^3.2.0",
-    "mocha": "^2.2.5"
-  }
+  "version": "0.4.0"
 }
